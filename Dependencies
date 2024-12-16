@@ -1,0 +1,56 @@
+THIS PROJECT IS CREATED USING SOLIDITY AND ETHERS.JS USING THE HARDHAT FRAMEWORK. IT DEPLOYS A SIMPLE CONTRACT ON THE HARDHAT LOCAL NETWORK AND SHOWS A RESPECTIVE OUTPUT FOR IT.
+
+The following steps are required to be completed to run this project. The following code blocks need to executed:
+
+HARDHAT INSTALLATION
+
+Step 1:
+npm install --save-dev hardhat
+npx hardhat
+
+Step 2:
+When prompted, choose "Create a basic sample project" and follow the instructions to set up Hardhat. [This is not code :)]
+
+Step 3:
+npm install --save-dev @nomicfoundation/hardhat-toolbox
+npm install dotenv
+
+SETTING UP ENVIRONMENT VARIABLES
+
+Step 1:
+PRIVATE_KEY=your_private_key
+INFURA_API_URL=https://goerli.infura.io/v3/your_project_id
+
+Step 2:
+Replace 'your_private_key' with your wallet's private key given by Hardhat and your_project_id with your hardhat project URL. Update the network to hardhat localhost.
+
+UPDATE HARDHAT CONFIG
+
+Steps:
+require("@nomicfoundation/hardhat-toolbox");
+require("dotenv").config();
+
+module.exports = {
+solidity: "0.8.18",
+networks: {
+url: process.env.HARDHAT_URL,
+accounts: [`0x${process.env.PRIVATE_KEY}`],
+},
+};
+
+COMPILE THE CONTRACT
+
+Step:
+npx hardhat compile
+
+DEPLOY THE CONTRACT
+
+Step:
+npx hardhat run scripts/deploy.js --network localhost
+
+EXPECTED OUTPUT
+
+Deploying the contract...
+Contract deployed to: 0xYourDeployedContractAddress
+
+---------------HAVE FUN !! :)------------------
